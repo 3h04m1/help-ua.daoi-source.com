@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Help, NeedHelp
+from geopy.geocoders import Nominatim
+
+geolocator = Nominatim(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:97.0) Gecko/20100101 Firefox/97.0")
 
 def index(request):
     # help = Help.objects.order_by("pub_date")()
@@ -12,7 +15,7 @@ def index(request):
 
 def help(request):
     if request.method == "POST":
-        print(request.POST)
+        # print(request.POST)
         help = Help.objects.create(help_type=request.POST.get("help_type"),
             name = request.POST.get("name"),
             tel = request.POST.get("tel"),
@@ -55,12 +58,21 @@ def mapview(request):
     return render(request, "working.html")
 
 def betamap(request):
-    help = Help.objects.order_by("pub_date")
+    help = Help.objects.all()
+    coordonates = {}
+    for item in help:
+        if item.address:
+            # print(item.address)
+            location = geolocator.geocode(item.address)
+            if location:
+                coordonates[item.pk] = [location.latitude, location.longitude]
     context = {
         "help": help,
+        "coords": coordonates,
     }
+    # print(help)
 
-    return render(request, "map.html")
+    return render(request, "map.html", context=context)
 
 def help_list(request):
     help_list = Help.objects.order_by("pub_date")

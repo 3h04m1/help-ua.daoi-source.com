@@ -14,9 +14,9 @@
     <script>
       const CONFIGURATION = {
         "locations": [
-          {"title":"Chisinau","address1":"Кишинёв","address2":"Молдавия","coords":{"lat":47.01066299496157,"lng":28.863815664418045},"placeId":"ChIJoWm3KDZ8yUARPN1JVzDW0Tc"},
-          {"title":"Рышкановка","address1":"Рышкановка","address2":"Кишинёв, Молдавия","coords":{"lat":47.05180780805503,"lng":28.84825766627046},"placeId":"ChIJBfY4jqV9yUARMfP8MQhVXAk"},
-          {"title":"Ботаника","address1":"Ботаника","address2":"Кишинёв, Молдавия","coords":{"lat":46.97362192983752,"lng":28.901800364418026},"placeId":"ChIJP3uZSKB5yUARi2ZEdfbyXBc"}
+        {% for item in help%}
+          {"title":"{{ item.help_type }}","address1":"{{ item.tel }}","address2":"{{item.pub_date}}","coords":{"lat":47.01066299496157,"lng":28.863815664418045}},
+          {% endfor %}
         ],
         "mapOptions": {"center":{"lat":38.0,"lng":-100.0},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":false,"zoom":4,"zoomControl":true,"maxZoom":17},
         "mapsApiKey": "AIzaSyBFPGuCxwr4X5SsgQo6Zf0CQEjobp0SLbQ",
