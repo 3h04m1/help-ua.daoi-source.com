@@ -75,7 +75,7 @@ def betamap(request):
     return render(request, "map.html", context=context)
 
 def help_list(request):
-    help_list = Help.objects.order_by("pub_date")
+    help_list = Help.objects.order_by("-pk")
     paginator = Paginator(help_list, 21)
     page_number = request.GET.get('page', 1)
     try:
@@ -94,7 +94,7 @@ def help_list(request):
     return render(request, "main/help_list.html", context=context)
 
 def need_help_list(request):
-    help_list = NeedHelp.objects.order_by("pub_date")
+    help_list = NeedHelp.objects.order_by("-pk")
     paginator = Paginator(help_list, 21)
     page_number = request.GET.get('page', 1)
     try:
