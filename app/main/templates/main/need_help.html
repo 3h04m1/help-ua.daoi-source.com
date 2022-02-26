@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container" style="margin: 3rem; max-width: 80vw;">
+    <div class="row">
+      <div class="col-md-8 col-sm-8">
+      <form method="post">
+        {% csrf_token %} 
+          <div class="form-group">
+            <label for="help_type">Help Type</label>
+            <input type="text" class="form-control" id="help_type" name="help_type" aria-describedby="Help Type" placeholder="Enter Your Help Type" maxlength="20" required>
+          </div>
+          <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" name="name" aria-describedby="name" placeholder="Enter Your Name" maxlength="255" required>
+            </div>
+            <div class="form-group">
+              <label for="tel">Telephone number</label>
+              <input type="text" class="form-control" id="tel" name="tel" aria-describedby="tel" placeholder="Enter your phone number" maxlength="15" required>
+            </div>
+            <div class="form-group">
+              <label for="details">Details</label>
+              <textarea type="text" class="form-control" id="details" name="details" aria-describedby="details" placeholder="Please enter details about your Help Offer" maxlength="1000" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="link">Link</label>
+              <input type="text" class="form-control" id="link" name="link" aria-describedby="link" placeholder="Paste your link here">
+            </div>
+            <br>
+          <input type="submit" class="btn btn-primary" value="Submit">
+      </form>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container" style="margin: 3rem; max-width: 80vw;">
+    <div class="row">
+        <form method="post">
+          {% csrf_token %} 
+            <div class="form-group">
+              <label for="help_type">Help Type</label>
+              <input type="text" class="form-control" id="help_type" name="help_type" aria-describedby="Help Type" placeholder="Enter Your Help Type" maxlength="20" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" aria-describedby="name" placeholder="Enter Your Name" maxlength="255" required>
+              </div>
+              <div class="form-group">
+                <label for="tel">Telephone number</label>
+                <input type="text" class="form-control" id="tel" name="tel" aria-describedby="tel" placeholder="Enter your phone number" maxlength="15" required>
+              </div>
+              <div class="form-group">
+                <label for="details">Details</label>
+                <textarea type="text" class="form-control" id="details" name="details" aria-describedby="details" placeholder="Please enter details about your Help Offer" maxlength="1000" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="link">Link</label>
+                <input type="text" class="form-control" id="link" name="link" aria-describedby="link" placeholder="Paste your link here">
+              </div>
+              <div class="form-group">
+                <label for="address">Please select the region</label>
+                <select class="form-control" id="address" name="address">
+                  <option value="chisinau">Chișinău</option>
+                  <option value="balti">Balți</option>
+                  <option value="comrat">Comrat</option>
+                  <option value="anenii_noi">Anenii Noi</option>
+                  <option value="basarabeasca">Basarabeasca</option>
+                  <option value="briceni">Briceni</option>
+                  <option value="cahul">Cahul</option>
+                  <option value="cantemir">Cantemir</option>
+                  <option value="calarasi">Călărași</option>
+                  <option value="causeni">Căușeni</option>
+                  <option value="cimislia">Cimișlia</option>
+                  <option value="criuleni">Criuleni</option>
+                  <option value="donduseni">Dondușeni</option>
+                  <option value="drochia">Drochia</option>
+                  <option value="dubasari">Dubăsari</option>
+                  <option value="edinet">Edineț</option>
+                  <option value="falesti">Fălești</option>
+                  <option value="floresti">Florești</option>
+                  <option value="glodeni">Glodeni</option>
+                  <option value="hincesti">Hîncești</option>
+                  <option value="ialoveni">Ialoveni</option>
+                  <option value="leova">Leova</option>
+                  <option value="nisporeni">Nisporeni</option>
+                  <option value="ocnita">Ocnița</option>
+                  <option value="orhei">Orhei</option>
+                  <option value="rezina">Rezina</option>
+                  <option value="riscani">Rîșcani</option>
+                  <option value="singerei">Sîngerei</option>
+                  <option value="soroca">Soroca</option>
+                  <option value="straseni">Strășeni</option>
+                  <option value="soldanesti">Șoldănești</option>
+                  <option value="stefan_voda">Ștefan Vodă</option>
+                  <option value="taraclia">Taraclia</option>
+                  <option value="telenesti">Telenești</option>
+                  <option value="ungheni">Ungheni</option>
+                </select>
+               </div>
+              <br>
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+</div>
+</div>
+{% endblock %}

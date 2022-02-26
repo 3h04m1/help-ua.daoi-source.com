@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container-fluid d-flex justify-content-center" style="width: 100%;padding:2rem;">
+    <div class="d-flex justify-content-center flex-column">
+      <div class="col-md-12">
+      <a class="btn btn-primary d-flex justify-content-center flex-column" href="{% url 'help_list' %}" style="min-width: 80vw; min-height:40vh;font-size: 3rem;">Список людей, готовых помочь</a>
+    </div>
+    <div class="col-md-12">
+      <a class="btn btn-warning d-flex justify-content-center flex-column" href="{% url 'need_help_list' %}" style="min-width: 80vw; min-height:40vh;font-size: 3rem;">Список людей, обращающихся за помощью</a>
+    </div>
+      
+</div>
+</div>
+{% endblock %}

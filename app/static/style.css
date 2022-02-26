@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+
+body{
+    /* background-size:cover; */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+h1 {
+    color:#fff;
+    margin:10px;
+}
+nav {
+    background-color: rgba(0, 0, 0, .9) !important;
+    border: 1px;
+    border-style: solid;
+    border-color: rgba(240, 248, 255, 0);
+    /* border-radius: 0px 0px 10% 10%; */
+}
+
+.nav li {
+    /* display: inline; */
+    padding: 10px;
+    margin: 10px;
+}
+footer {
+    position:static;
+    bottom: 0px;
+    width: 100%;
+    background-color:rgba(0, 0, 0, .9); 
+}
+.main {
+    background-color:rgba(0, 0, 0, .9) !important;
+    color: white;
+    margin: 3rem;
+    /* max-width: 70vh !important; */
+}
+.main a {
+    text-decoration: none;
+    color: #fff;
+}
+.main div{
+    border-style:solid;
+    border-color: transparent;
+    border-width: 5px;
+}
+
+/* logo */
+.logo {
+    padding: 0;
+    margin: 10px;
+    height: 100px;
+    width: 100px;
+    border-style: solid;
+    border-color: #1f51ff;
+    border-radius: 0% 50% 50%;
+    border-width: 15px;
+    color: #fff;
+    font-weight: bold;
+    font-family: "Space Mono", monospace;
+  }
+  .text-logo {
+    margin: 5%;
+    text-align: left;
+  }
+  .logo-background{
+    background-repeat:no-repeat;
+    background-blend-mode:darken;
+    background-image: url(/src/images/logo\ background.jpg);
+  }
+
+
+  /* mobile nav */
+
+  .topnav {
+    text-align: right;
+    overflow: hidden;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 3px;
+    /* border-width: 2px; */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color:rgb(25, 25, 25) ;
+    z-index: 1000;
+  }
+  
+  .topnav #myLinks {
+    display: none;
+    text-align: left;
+  }
+  
+  .topnav .m-nav {
+    /* color: white; */
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+  }
+  
+  .topnav a.icon {
+    display: block;
+    height: 100%;
+    width: auto;
+  }
+  
+  .topnav a:hover {
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 1px;
+    background-color: #ddd;
+    color: black;
+  }
+  @media screen and (min-width: 1500px) {
+    .topnav{
+      display: none;
+    }
+    
+  }
+  @media screen and (max-width:1500px) {
+    li .nav-link{
+      display: none;
+    }
+    }

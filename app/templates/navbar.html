@@ -1,0 +1,42 @@
+<nav class="d-flex flex-wrap justify-content-between align-items-center">
+  <a href="{% url 'index' %}"<div class="logo" style="padding: 0;
+  margin: 10px;
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-color: #1f51ff;
+  border-radius: 0% 50% 50%;
+  border-width: 15px;
+  color: #fff;
+  font-weight: bold;
+  font-family: 'Space Mono', monospace;">
+    <!-- <p class="text-logo">Daoi-Source</p> -->
+  </div></a>
+
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a href="{% url 'index' %}" class="nav-link" aria-current="page">Главная</a></li>
+      <li class="nav-item"><a href="{% url 'help' %}" class="nav-link">Предлагайте помощь</a></li>
+      <li class="nav-item"><a href="{% url 'need_help' %}" class="nav-link">Обратитесь за помощью</a></li>
+      <li class="nav-item"><a href="{% url 'map' %}" class="nav-link active">Карта</a></li>
+    </ul>
+    <div class="topnav">
+      <a class="m-nav" href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+      <div id="myLinks">
+        <div class="window">
+          <a class="m-nav" href="{% url 'index' %}"> Главная</a>
+        </div>
+        <div class="window">
+          <a class="m-nav" href="{% url 'help' %}"> Предлагайте помощь</a>
+        </div>
+        <div class="window">
+          <a class="m-nav" href="{% url 'need_help' %}"> Обратитесь за помощью</a>
+        </div>
+        <div class="window">
+          <a class="m-nav" href="{% url 'map' %}"> Карта</a>
+        </div>
+      </div>
+    </div>
+</nav>
