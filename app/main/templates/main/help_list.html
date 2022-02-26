@@ -9,6 +9,11 @@
         <div class="card-body d-flex justify-content-center flex-column">
           <h5 class="card-title">{{ item.help_type }} - {{ item.address }}</h5>
           <p class="card-text">{{ item.details }}</p>
+          {% if item.mod_date%}
+          <p class="card-text">{{ item.mod_date }}</p>
+          {% else %}
+          <p class="card-text">{{ item.pub_date }}</p>
+          {% endif %}
           <a href="tel:{{ item.tel }}" class="btn btn-primary">{{ item.tel }}</a>
         </div>
       </div>

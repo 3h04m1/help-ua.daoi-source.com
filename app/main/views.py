@@ -54,6 +54,13 @@ def mapview(request):
 
     return render(request, "working.html")
 
+def betamap(request):
+    help = Help.objects.order_by("pub_date")
+    context = {
+        "help": help,
+    }
+
+    return render(request, "map.html")
 
 def help_list(request):
     help_list = Help.objects.order_by("pub_date")
