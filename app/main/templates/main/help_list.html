@@ -54,6 +54,14 @@
   <br>
 <div class="container">
     <div class="row">
+      {% if help_list %}
+      <!-- <div class="alert alert-danger">
+        Пока нет объявлений для данной области
+      </div> -->
+      {% else %}
+      
+      {% endif %}
+
 {% for item in help %}
 <div class="col-md-4 col-sm-12 d-flex justify-content-center">
     <div class="card d-flex justify-content-center" style="width: 18rem; margin:.75rem 0rem;min-height:200px ;">
@@ -72,6 +80,8 @@
       </div>
 </div>
 {% endfor %}
+
+
 </div>
 </div>
 </div>

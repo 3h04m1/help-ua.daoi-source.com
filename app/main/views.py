@@ -76,11 +76,12 @@ def betamap(request):
 
 def help_list(request):
     help_list = Help.objects.order_by("-pk")
-    # print(help_list)
+    all_list = help_list
+    
     help_type = request.GET.get("help_type")
-    print(help_type)
+    
     address = request.GET.get("address")
-    print(address)
+    
     
     if address:
         help_list = help_list.filter(address=address)
@@ -88,8 +89,10 @@ def help_list(request):
         help_list = help_list.filter(help_type=help_type)
 
 
-    print(help_list)
-    paginator = Paginator(help_list, 21)
+    if help_list:
+        paginator = Paginator(help_list, 21)
+    else:
+        paginator = Paginator(all_list, 21)
     page_number = request.GET.get('page', 1)
     try:
         help = paginator.page(page_number)
