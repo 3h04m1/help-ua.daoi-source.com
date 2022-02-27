@@ -1,5 +1,3 @@
-$description = $(".description");
-
 //selecting individual states
 $("path").click(function() {
   var string = $(this).attr("id");

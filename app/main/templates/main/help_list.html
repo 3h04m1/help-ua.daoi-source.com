@@ -1,6 +1,57 @@
 {% extends 'base.html' %}
 
 {% block main %}
+<br>
+<div class="container">
+<div class="container">
+    {% csrf_token %}
+    <form method="get" class="row align-items-center justify-content-center">
+          <label for="help_type">Help Type</label>
+          <input style="margin: .5rem;" type="text" class="form-control" id="help_type" name="help_type" aria-describedby="Help Type" placeholder="Enter Your Help Type" maxlength="20">
+            <label for="address">Please select the region</label>
+            <select style="margin: .5rem;" class="form-control" id="address" name="address">
+              <option value="">All</option>
+              <option value="chisinau">Chișinău</option>
+              <option value="balti">Balți</option>
+              <option value="comrat">Comrat</option>
+              <option value="anenii_noi">Anenii Noi</option>
+              <option value="basarabeasca">Basarabeasca</option>
+              <option value="briceni">Briceni</option>
+              <option value="cahul">Cahul</option>
+              <option value="cantemir">Cantemir</option>
+              <option value="calarasi">Călărași</option>
+              <option value="causeni">Căușeni</option>
+              <option value="cimislia">Cimișlia</option>
+              <option value="criuleni">Criuleni</option>
+              <option value="donduseni">Dondușeni</option>
+              <option value="drochia">Drochia</option>
+              <option value="dubasari">Dubăsari</option>
+              <option value="edinet">Edineț</option>
+              <option value="falesti">Fălești</option>
+              <option value="floresti">Florești</option>
+              <option value="glodeni">Glodeni</option>
+              <option value="hincesti">Hîncești</option>
+              <option value="ialoveni">Ialoveni</option>
+              <option value="leova">Leova</option>
+              <option value="nisporeni">Nisporeni</option>
+              <option value="ocnita">Ocnița</option>
+              <option value="orhei">Orhei</option>
+              <option value="rezina">Rezina</option>
+              <option value="riscani">Rîșcani</option>
+              <option value="singerei">Sîngerei</option>
+              <option value="soroca">Soroca</option>
+              <option value="straseni">Strășeni</option>
+              <option value="soldanesti">Șoldănești</option>
+              <option value="stefan_voda">Ștefan Vodă</option>
+              <option value="taraclia">Taraclia</option>
+              <option value="telenesti">Telenești</option>
+              <option value="ungheni">Ungheni</option>
+            </select>
+        <input style="margin: .5rem;" type="submit" class="btn btn-primary" value="Поиск">
+       
+    </form>
+  </div>
+  <br>
 <div class="container">
     <div class="row">
 {% for item in help %}
@@ -21,6 +72,7 @@
       </div>
 </div>
 {% endfor %}
+</div>
 </div>
 </div>
 {% if help.has_other_pages %}
