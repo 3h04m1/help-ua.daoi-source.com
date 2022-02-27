@@ -1,0 +1,7 @@
+#outlines path:hover{fill:#000;cursor:pointer;}
+#outlines path:active{fill:#8FB73F}
+.enabled{fill:#336699 !important;}
+label {margin-right:2em;margin-top:10px;}
+button{margin-top:5px;}
+text:hover{cursor:pointer;fill:#5E6B6F}
+svg text::selection { background: none; }
