@@ -1,0 +1,32 @@
+#outlines path:hover{fill:#d1ce04;cursor:pointer;}
+#outlines path:active{fill:#d1ce04}
+.enabled{fill:#d1ce04 !important;}
+label {margin-right:2em;margin-top:10px;}
+svg text::selection { background: none; }
+
+.svg-container { 
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	vertical-align: middle; 
+	overflow: hidden; 
+}
+
+@media (max-width:640px){
+.svg-container{
+    display:none;
+}
+.svg-container-mob{
+    display:flex;
+    margin-bottom: 1rem;
+}
+}
+@media (min-width:640px){
+    .svg-container{
+        display:flex;
+        margin-bottom: 1rem;
+    }
+    .svg-container-mob{
+        display:none;
+    }
+    }
