@@ -5,22 +5,24 @@ from .models import Help, NeedHelp
 @admin.register(Help)
 class HelpAdmin(admin.ModelAdmin):
     list_display = (
-        'help_type',
+        'title',
+        'category',
         'address',
         'name',
         'tel',
-        'pub_date',
+        # 'pub_date',
         'mod_date'
         )
     list_filter = (
         'address',
-        'help_type',
+        'category',
     )
     search_fields = (
-        'help_type',
+        'title',
         'address',
         'name',
         'tel',
+        'category',
     )
     
 
@@ -28,8 +30,9 @@ class HelpAdmin(admin.ModelAdmin):
 @admin.register(NeedHelp)
 class NeedHelpAdmin(admin.ModelAdmin):
     list_display = (
-        'help_type',
+        'title',
         # 'address',
+        'category',
         'name',
         'tel',
         'pub_date',
@@ -37,11 +40,13 @@ class NeedHelpAdmin(admin.ModelAdmin):
         )
     list_filter = (
         # 'address',
-        'help_type',
+        'category',
+        'title',
     )
     search_fields = (
-        'help_type',
+        'title',
         # 'address',
+        'category',
         'name',
         'tel',
     )
