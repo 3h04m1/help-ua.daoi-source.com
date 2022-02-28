@@ -37,7 +37,7 @@ class NeedHelpAdmin(admin.ModelAdmin):
         'category',
         'name',
         'tel',
-        'pub_date',
+        # 'pub_date',
         'mod_date'
         )
     list_filter = (

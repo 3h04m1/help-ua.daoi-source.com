@@ -69,7 +69,7 @@ class NeedHelp(models.Model):
     name = models.CharField(max_length=255)
     tel = models.CharField(max_length=15)
     details = models.TextField(max_length=1000)
-    pub_date = models.DateTimeField(auto_now_add=True)
+    # pub_date = models.DateTimeField(auto_now_add=True)
     mod_date = models.DateTimeField(auto_now=True)
     link = models.URLField(max_length=1000, blank=True)
     valabil = models.BooleanField(default=True)
@@ -85,5 +85,5 @@ class NeedHelp(models.Model):
     category = models.CharField(max_length=20, choices=Category.choices, null=True, default="None")
     
     def __str__(self):
-        return f"{self.category} - {self.address}"
+        return f"{self.category}"
 # Create your models here.
