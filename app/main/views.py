@@ -51,11 +51,32 @@ def need_help(request):
 
 def mapview(request):
     help = Help.objects.order_by("pub_date")
+    address = request.GET.get("address")
+    if address:
+        help = help.filter(address=address)
+   
+    paginator = Paginator(help, 6)
+
+    page_number = request.GET.get('page', 1)
+
+    try:
+        help = paginator.page(page_number)
+    except PageNotAnInteger:
+        help = paginator.page(1)
+    except EmptyPage:
+        page_number = paginator.page(paginator.num_pages)
+    
+    page_obj = paginator.get_page(page_number)
+
+    
     context = {
         "help": help,
+        "page_obj": page_obj,
+        "page_number": page_number,
+        "address": address,
     }
 
-    return render(request, "working.html")
+    return render(request, "working.html", context=context)
 
 def betamap(request):
     help = Help.objects.all()
@@ -129,7 +150,7 @@ def need_help_list(request):
         paginator = Paginator(help_list, 21)
     else:
         paginator = Paginator(all_list, 21)
-        
+
     page_number = request.GET.get('page', 1)
     try:
         help = paginator.page(page_number)
