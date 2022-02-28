@@ -5,9 +5,22 @@
     <div class="row">
         <form method="post">
           {% csrf_token %} 
+          <h1 class="text-center">Предлагайте помощь</h1>
+          <br>
             <div class="form-group">
-              <label for="help_type">Help Type</label>
+              <label for="help_type">Title</label>
               <input type="text" class="form-control" id="help_type" name="help_type" aria-describedby="Help Type" placeholder="Enter Your Help Type" maxlength="20" required>
+            </div>
+            <div class="form-group">
+              <label for="category">Category</label>
+              <select name="category" id="category" class="form-control" required>
+                <option value="cazare">Cazare | Проживання</option>
+                <option value="transport">Transport | Транспорт</option>
+                <option value="consiliere">Consiliere | Консультування</option>
+                <option value="voluntariat">Волонтерство, переклад</option>
+                <option value="donatii">Haine, alimente | Одяг, їжа</option>
+                <option value="lucru">Lucru | Работа</option>
+              </select>
             </div>
             <div class="form-group">
                 <label for="name">Name</label>

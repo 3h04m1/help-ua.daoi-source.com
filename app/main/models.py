@@ -2,11 +2,11 @@
 from django.db import models
 
 class Help(models.Model):
-    help_type = models.CharField(max_length=20)
+    title = models.CharField(max_length=20, db_column="title")
     name = models.CharField(max_length=255)
     tel = models.CharField(max_length=15)
     details = models.TextField(max_length=1000)
-    pub_date = models.DateTimeField(auto_now_add=True)
+    # pub_date = models.DateTimeField(auto_now_add=True)
     mod_date = models.DateTimeField(auto_now=True)
     link = models.URLField(max_length=1000, blank=True)
 
@@ -49,22 +49,41 @@ class Help(models.Model):
     
     address = models.CharField(max_length=1000, choices=Adress.choices, default="chisinau")
     valabil = models.BooleanField(default=True)
-
+    
+    class Category(models.TextChoices):
+        cazare = "cazare", 'Cazare | Проживання'
+        transport = "transport", 'Transport | Транспорт'
+        consiliere = "consiliere", 'Consiliere | Консультування'
+        voluntariat = 'voluntariat', 'Волонтерство, переклад'
+        donatii = 'donatii', 'Haine, alimente | Одяг, їжа'
+        lucru = 'lucru', 'Lucru | Работа '
+    
+    category = models.CharField(max_length=20, choices=Category.choices, null=True, default="None")
+    
     def __str__(self):
-        return f"{self.help_type} - {self.address}"
+        return f"{self.category} - {self.address}"
     
 
 class NeedHelp(models.Model):
-    help_type = models.CharField(max_length=20)
+    title = models.CharField(max_length=20,db_column="title")
     name = models.CharField(max_length=255)
     tel = models.CharField(max_length=15)
     details = models.TextField(max_length=1000)
     pub_date = models.DateTimeField(auto_now_add=True)
     mod_date = models.DateTimeField(auto_now=True)
     link = models.URLField(max_length=1000, blank=True)
-    # address = models.CharField(max_length=1000, default="Moldova")
     valabil = models.BooleanField(default=True)
-
+    
+    class Category(models.TextChoices):
+        cazare = "cazare", 'Cazare | Проживання'
+        transport = "transport", 'Transport | Транспорт'
+        consiliere = "consiliere", 'Consiliere | Консультування'
+        voluntariat = 'voluntariat', 'Волонтерство, переклад'
+        donatii = 'donatii', 'Haine, alimente | Одяг, їжа'
+        lucru = 'lucru', 'Lucru | Работа '
+    
+    category = models.CharField(max_length=20, choices=Category.choices, null=True, default="None")
+    
     def __str__(self):
-        return f"{self.help_type} - {self.pub_date}"
+        return f"{self.category} - {self.address}"
 # Create your models here.

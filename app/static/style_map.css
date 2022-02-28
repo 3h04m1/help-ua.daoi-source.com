@@ -12,7 +12,7 @@ svg text::selection { background: none; }
 	overflow: hidden; 
 }
 
-@media (max-width:640px){
+@media (max-width:800px){
 .svg-container{
     display:none;
 }
@@ -21,7 +21,7 @@ svg text::selection { background: none; }
     margin-bottom: 1rem;
 }
 }
-@media (min-width:640px){
+@media (min-width:800px){
     .svg-container{
         display:flex;
         margin-bottom: 1rem;
