@@ -476,10 +476,100 @@
 {% if help %}
 <div class="alert alert-success">
    <h1 class="text-center">Результаты поиска: </h1>
+   <form method="get">
+      <label for="address">Please select the region</label>
+            <select style="margin: .5rem;" class="form-control" id="address" name="address">
+              {% if address %}
+              <option disabled selected  value="">{{ address }}</option>
+              {% endif %}
+              <option value="">All</option>
+              <option value="chisinau">Chișinău</option>
+              <option value="balti">Balți</option>
+              <option value="comrat">Comrat</option>
+              <option value="anenii_noi">Anenii Noi</option>
+              <option value="basarabeasca">Basarabeasca</option>
+              <option value="briceni">Briceni</option>
+              <option value="cahul">Cahul</option>
+              <option value="cantemir">Cantemir</option>
+              <option value="calarasi">Călărași</option>
+              <option value="causeni">Căușeni</option>
+              <option value="cimislia">Cimișlia</option>
+              <option value="criuleni">Criuleni</option>
+              <option value="donduseni">Dondușeni</option>
+              <option value="drochia">Drochia</option>
+              <option value="dubasari">Dubăsari</option>
+              <option value="edinet">Edineț</option>
+              <option value="falesti">Fălești</option>
+              <option value="floresti">Florești</option>
+              <option value="glodeni">Glodeni</option>
+              <option value="hincesti">Hîncești</option>
+              <option value="ialoveni">Ialoveni</option>
+              <option value="leova">Leova</option>
+              <option value="nisporeni">Nisporeni</option>
+              <option value="ocnita">Ocnița</option>
+              <option value="orhei">Orhei</option>
+              <option value="rezina">Rezina</option>
+              <option value="riscani">Rîșcani</option>
+              <option value="singerei">Sîngerei</option>
+              <option value="soroca">Soroca</option>
+              <option value="straseni">Strășeni</option>
+              <option value="soldanesti">Șoldănești</option>
+              <option value="stefan_voda">Ștefan Vodă</option>
+              <option value="taraclia">Taraclia</option>
+              <option value="telenesti">Telenești</option>
+              <option value="ungheni">Ungheni</option>
+            </select>
+            <input style="margin: .5rem;" type="submit" class="btn btn-primary" value="Поиск">
+   </form>
 </div>
 {% else %}
 <div class="alert alert-danger">
    <h1 class="text-center">Пока нет объявлений для данной области</h1>
+   <form method="get">
+      <label for="address">Please select the region</label>
+            <select style="margin: .5rem;" class="form-control" id="address" name="address">
+              {% if address %}
+              <option disabled selected  value="">{{ address|upper }}</option>
+              {% endif %}
+              <option value="">All</option>
+              <option value="chisinau">Chișinău</option>
+              <option value="balti">Balți</option>
+              <option value="comrat">Comrat</option>
+              <option value="anenii_noi">Anenii Noi</option>
+              <option value="basarabeasca">Basarabeasca</option>
+              <option value="briceni">Briceni</option>
+              <option value="cahul">Cahul</option>
+              <option value="cantemir">Cantemir</option>
+              <option value="calarasi">Călărași</option>
+              <option value="causeni">Căușeni</option>
+              <option value="cimislia">Cimișlia</option>
+              <option value="criuleni">Criuleni</option>
+              <option value="donduseni">Dondușeni</option>
+              <option value="drochia">Drochia</option>
+              <option value="dubasari">Dubăsari</option>
+              <option value="edinet">Edineț</option>
+              <option value="falesti">Fălești</option>
+              <option value="floresti">Florești</option>
+              <option value="glodeni">Glodeni</option>
+              <option value="hincesti">Hîncești</option>
+              <option value="ialoveni">Ialoveni</option>
+              <option value="leova">Leova</option>
+              <option value="nisporeni">Nisporeni</option>
+              <option value="ocnita">Ocnița</option>
+              <option value="orhei">Orhei</option>
+              <option value="rezina">Rezina</option>
+              <option value="riscani">Rîșcani</option>
+              <option value="singerei">Sîngerei</option>
+              <option value="soroca">Soroca</option>
+              <option value="straseni">Strășeni</option>
+              <option value="soldanesti">Șoldănești</option>
+              <option value="stefan_voda">Ștefan Vodă</option>
+              <option value="taraclia">Taraclia</option>
+              <option value="telenesti">Telenești</option>
+              <option value="ungheni">Ungheni</option>
+            </select>
+            <input style="margin: .5rem;" type="submit" class="btn btn-primary" value="Поиск">
+   </form>
 </div>
 {% endif %}
 <div class="container-fluid">
@@ -488,7 +578,7 @@
 <div class="col-md-4 col-sm-12 d-flex justify-content-center">
     <div class="card d-flex justify-content-center" style="width: 18rem; margin:.75rem 0rem;min-height:200px ;">
         <div class="card-body d-flex justify-content-center flex-column">
-          <h5 class="card-title">{{ item.help_type }} - {{ item.address }}</h5>
+          <h5 class="card-title">{{ item|upper }}</h5>
           <p class="card-text">{{ item.details }}</p>
           {% if item.mod_date%}
           <p class="card-text">{{ item.mod_date }}</p>
@@ -507,8 +597,70 @@
 {% else %}
 <div class="alert alert-success align-items-center">
    <h1 class="text-center">Выберите область, для которой вы хотите видеть объявления</h1>
+   <form method="get">
+      <label for="address">Please select the region</label>
+            <select style="margin: .5rem;" class="form-control" id="address" name="address">
+              {% if address %}
+              <option disabled selected  value="">{{ address }}</option>
+              {% endif %}
+              <option value="">All</option>
+              <option value="chisinau">Chișinău</option>
+              <option value="balti">Balți</option>
+              <option value="comrat">Comrat</option>
+              <option value="anenii_noi">Anenii Noi</option>
+              <option value="basarabeasca">Basarabeasca</option>
+              <option value="briceni">Briceni</option>
+              <option value="cahul">Cahul</option>
+              <option value="cantemir">Cantemir</option>
+              <option value="calarasi">Călărași</option>
+              <option value="causeni">Căușeni</option>
+              <option value="cimislia">Cimișlia</option>
+              <option value="criuleni">Criuleni</option>
+              <option value="donduseni">Dondușeni</option>
+              <option value="drochia">Drochia</option>
+              <option value="dubasari">Dubăsari</option>
+              <option value="edinet">Edineț</option>
+              <option value="falesti">Fălești</option>
+              <option value="floresti">Florești</option>
+              <option value="glodeni">Glodeni</option>
+              <option value="hincesti">Hîncești</option>
+              <option value="ialoveni">Ialoveni</option>
+              <option value="leova">Leova</option>
+              <option value="nisporeni">Nisporeni</option>
+              <option value="ocnita">Ocnița</option>
+              <option value="orhei">Orhei</option>
+              <option value="rezina">Rezina</option>
+              <option value="riscani">Rîșcani</option>
+              <option value="singerei">Sîngerei</option>
+              <option value="soroca">Soroca</option>
+              <option value="straseni">Strășeni</option>
+              <option value="soldanesti">Șoldănești</option>
+              <option value="stefan_voda">Ștefan Vodă</option>
+              <option value="taraclia">Taraclia</option>
+              <option value="telenesti">Telenești</option>
+              <option value="ungheni">Ungheni</option>
+            </select>
+            <input style="margin: .5rem;" type="submit" class="btn btn-primary" value="Поиск">
+   </form>
 </div>
 {% endif %}
+{% if help.has_other_pages %}
+                <div class="container-fluid">
+                <div class="container-fluid" style="width: 100%">
+                    <div class="col-sm-12 d-flex justify-content-center" style="margin:3rem 0rem;">
+                          <ul class="pagination" style="padding: 0px 5rem">
+                                {% if help.has_previous %}
+                                <li class="page-item"><a class="page-link" href="?address={{address}}&page={{ help.previous_page_number }}">Previous</a></li>
+                                {% endif %}
+                                <h3 style="margin:0px 10px;width:max-content;">{{ page_number }} of {{ help.paginator.num_pages }}</h3>
+                            {% if help.has_next %}
+                            <li class="page-item"><a class="page-link" href="?address={{address}}&page={{ help.next_page_number }}">Next</a></li>
+                            {% endif %}
+                          </ul>
+                    </div>
+                </div>
+              </div>
+            {% endif %}
 </div>
 </div>
 {% endblock%}
