@@ -9,8 +9,17 @@
   {% csrf_token %}
   <form method="get" class="row align-items-center justify-content-center">
     <h1 class="text-center">Список людей, готовых помочь</h1>
-    <label for="help_type">Help Type</label>
-          <input style="margin: .5rem;" type="text" class="form-control" id="help_type" name="help_type" aria-describedby="Help Type" placeholder="Enter Your Help Type" maxlength="20">
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select name="category" id="category" class="form-control" required>
+        <option value="cazare">Cazare | Проживання</option>
+        <option value="transport">Transport | Транспорт</option>
+        <option value="consiliere">Consiliere | Консультування</option>
+        <option value="voluntariat">Волонтерство, переклад</option>
+        <option value="donatii">Haine, alimente | Одяг, їжа</option>
+        <option value="lucru">Lucru | Работа</option>
+      </select>
+    </div>
             <label for="address">Please select the region</label>
             <select style="margin: .5rem;" class="form-control" id="address" name="address">
               {% if address %}

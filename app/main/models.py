@@ -61,7 +61,7 @@ class Help(models.Model):
     category = models.CharField(max_length=20, choices=Category.choices, null=True, default="None")
     
     def __str__(self):
-        return f"{self.title} - {self.address}"
+        return f"{self.category} - {self.address}"
     
 
 class NeedHelp(models.Model):
@@ -85,5 +85,5 @@ class NeedHelp(models.Model):
     category = models.CharField(max_length=20, choices=Category.choices, null=True, default="None")
     
     def __str__(self):
-        return f"{self.title} - {self.pub_date}"
+        return f"{self.category} - {self.address}"
 # Create your models here.

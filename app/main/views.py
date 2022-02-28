@@ -1,3 +1,4 @@
+from unicodedata import category
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Help, NeedHelp
@@ -16,12 +17,15 @@ def index(request):
 def help(request):
     if request.method == "POST":
         # print(request.POST)
-        help = Help.objects.create(help_type=request.POST.get("help_type"),
+        help = Help.objects.create(
+            title=request.POST.get("help_type"),
             name = request.POST.get("name"),
             tel = request.POST.get("tel"),
             details=request.POST.get("details"),
             link=request.POST.get("link"),
-            address=request.POST.get("address")
+            address=request.POST.get("address"),
+            category=request.POST.get('category')
+
         )
         return redirect('index')
 
@@ -34,11 +38,12 @@ def help(request):
 def need_help(request):
     if request.method == "POST":
         help = NeedHelp.objects.create(
-                help_type=request.POST.get("help_type"),
+                title=request.POST.get("help_type"),
                 name = request.POST.get("name"),
                 tel = request.POST.get("tel"),
                 details=request.POST.get("details"),
-                link=request.POST.get("link")
+                link=request.POST.get("link"),
+                category=request.POST.get('category')
             )
     help = NeedHelp.objects.order_by("mod_date")
     context = {
@@ -99,7 +104,7 @@ def help_list(request):
     help_list = Help.objects.order_by("-pk")
     all_list = help_list
     
-    help_type = request.GET.get("help_type")
+    help_type = request.GET.get("category")
     
     address = request.GET.get("address")
     
@@ -107,7 +112,7 @@ def help_list(request):
     if address:
         help_list = help_list.filter(address=address)
     if help_type:
-        help_list = help_list.filter(help_type=help_type)
+        help_list = help_list.filter(category=help_type)
 
 
     if help_list:
