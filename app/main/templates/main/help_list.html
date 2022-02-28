@@ -4,12 +4,18 @@
 <br>
 <div class="container">
 <div class="container">
-    {% csrf_token %}
-    <form method="get" class="row align-items-center justify-content-center">
-          <label for="help_type">Help Type</label>
+  <br>
+  {% if request.path == "/help_list/" %}
+  {% csrf_token %}
+  <form method="get" class="row align-items-center justify-content-center">
+    <h1 class="text-center">Список людей, готовых помочь</h1>
+    <label for="help_type">Help Type</label>
           <input style="margin: .5rem;" type="text" class="form-control" id="help_type" name="help_type" aria-describedby="Help Type" placeholder="Enter Your Help Type" maxlength="20">
             <label for="address">Please select the region</label>
             <select style="margin: .5rem;" class="form-control" id="address" name="address">
+              {% if address %}
+              <option disabled selected  value="">{{ address }}</option>
+              {% endif %}
               <option value="">All</option>
               <option value="chisinau">Chișinău</option>
               <option value="balti">Balți</option>
@@ -48,18 +54,28 @@
               <option value="ungheni">Ungheni</option>
             </select>
         <input style="margin: .5rem;" type="submit" class="btn btn-primary" value="Поиск">
+        <a href="{% url 'help' %}" class="btn btn-success">Предлагайте помощь</a>
        
     </form>
+  {% else %}
+    <div class="row align-items-center justify-content-center">
+      <h1 class="text-center">Список людей, обращающихся за помощью</h1>
+      <br>
+      <a href="{% url 'need_help' %}" class="btn btn-success">Обратитесь за помощью</a>
+    </div>
+  {% endif %}
   </div>
   <br>
 <div class="container">
     <div class="row">
-      {% if help_list %}
-      <!-- <div class="alert alert-danger">
-        Пока нет объявлений для данной области
-      </div> -->
-      {% else %}
-      
+      {% if not help_list %}
+      <div class="alert alert-danger">
+        Пока нет объявлений для данной области | все объявления перечислены
+      </div>
+      {% elif address %}
+      <div class="alert alert-primary">
+      Результаты поиска:
+      </div>
       {% endif %}
 
 {% for item in help %}

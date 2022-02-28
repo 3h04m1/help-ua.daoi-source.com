@@ -93,25 +93,43 @@ def help_list(request):
         paginator = Paginator(help_list, 21)
     else:
         paginator = Paginator(all_list, 21)
+    
     page_number = request.GET.get('page', 1)
+    
     try:
         help = paginator.page(page_number)
     except PageNotAnInteger:
         help = paginator.page(1)
     except EmptyPage:
         page_number = paginator.page(paginator.num_pages)
+    
     page_obj = paginator.get_page(page_number)
+    
     context = {
         "help": help,
         "page_obj": page_obj,
         "page_number": page_number,
+        "help_list": help_list,
+        "help_type": help_type,
+        "address": address,
 
     }
     return render(request, "main/help_list.html", context=context)
 
 def need_help_list(request):
+    
+    help_type = request.GET.get("help_type")
+    
     help_list = NeedHelp.objects.order_by("-pk")
-    paginator = Paginator(help_list, 21)
+    all_list = help_list
+    
+    address = request.GET.get("address")
+
+    if help_list:
+        paginator = Paginator(help_list, 21)
+    else:
+        paginator = Paginator(all_list, 21)
+        
     page_number = request.GET.get('page', 1)
     try:
         help = paginator.page(page_number)
@@ -124,6 +142,9 @@ def need_help_list(request):
         "help": help,
         "page_obj": page_obj,
         "page_number": page_number,
+        "help_list": help_list,
+        "help_type": help_type,
+        "address": address,
 
     }
     return render(request, "main/help_list.html", context=context)
