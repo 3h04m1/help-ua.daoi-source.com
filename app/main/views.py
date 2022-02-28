@@ -6,7 +6,7 @@ from geopy.geocoders import Nominatim
 geolocator = Nominatim(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:97.0) Gecko/20100101 Firefox/97.0")
 
 def index(request):
-    # help = Help.objects.order_by("pub_date")()
+    # help = Help.objects.order_by("mod_date")()
     # context = {
     #     "help": help,
     # }
@@ -25,7 +25,7 @@ def help(request):
         )
         return redirect('index')
 
-    help = Help.objects.order_by("pub_date")
+    help = Help.objects.order_by("mod_date")
     context = {
         "help": help,
     }
@@ -40,7 +40,7 @@ def need_help(request):
                 details=request.POST.get("details"),
                 link=request.POST.get("link")
             )
-    help = NeedHelp.objects.order_by("pub_date")
+    help = NeedHelp.objects.order_by("mod_date")
     context = {
         "help": help,
     }
@@ -50,7 +50,7 @@ def need_help(request):
 
 
 def mapview(request):
-    help = Help.objects.order_by("pub_date")
+    help = Help.objects.order_by("mod_date")
     address = request.GET.get("address")
     if address:
         help = help.filter(address=address)
