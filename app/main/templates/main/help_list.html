@@ -6,8 +6,8 @@
 <div class="container">
     {% csrf_token %}
     <form method="get" class="row align-items-center justify-content-center">
-          <label for="help_type">Help Type</label>
-          <input style="margin: .5rem;" type="text" class="form-control" id="help_type" name="help_type" aria-describedby="Help Type" placeholder="Enter Your Help Type" maxlength="20">
+          <!-- <label for="help_type">Help Type</label>
+          <input style="margin: .5rem;" type="text" class="form-control" id="help_type" name="help_type" aria-describedby="Help Type" placeholder="Enter Your Help Type" maxlength="20"> -->
             <label for="address">Please select the region</label>
             <select style="margin: .5rem;" class="form-control" id="address" name="address">
               <option value="">All</option>
@@ -54,10 +54,11 @@
   <br>
 <div class="container">
     <div class="row">
-      {% if help_list %}
+      {% if help_list.lenght == 0 %}
       <!-- <div class="alert alert-danger">
         Пока нет объявлений для данной области
       </div> -->
+      test
       {% else %}
       
       {% endif %}
@@ -73,7 +74,7 @@
           {% elif item.pub_date %}
           <p class="card-text">{{ item.pub_date }}</p>
           {% else %}
-          <p class="card-text">Feb. 25, 2022</p>
+          <p class="card-text">Feb. 26, 2022</p>
           {% endif %}
           <a href="tel:{{ item.tel }}" class="btn btn-primary">{{ item.tel }}</a>
         </div>
