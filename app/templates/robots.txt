@@ -1,0 +1,9 @@
+User-Agent: *
+Allow: /
+Disallow: /admin/
+Allow: /banks/
+Allow: /map/
+Allow: /help/
+Allow: /need_help/
+Allow: /need_help_list/
+Allow: /help_list/

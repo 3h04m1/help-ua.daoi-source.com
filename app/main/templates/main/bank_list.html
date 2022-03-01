@@ -1,4 +1,22 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block head %}
+  <meta proprety="og:image" content="{% static 'images/hrivne.jpg' %}"/>
+  <meta proprety="og:image:url" content="{% static 'images/hrivne.jpg' %}"/>
+  <meta proprety="og:image:alt" content="UA money"/>
+  <meta property="og:image:type" content="image/jpg">
+  <meta property="og:image:width" content="1024"/>
+  <meta property="og:image:height" content="1024"/>
+  <meta property="og:title" content="Вывод валюты с украинских счетов" />
+  <meta property="og:url" content="https://help-ua.daoi-source.com/banks/" />
+  <meta property="og:site_name" content="https://daoi-source.com/banks/" />
+  <meta property="og:description" content="Банки Молдовы - ближе к украинскому народу" />
+  <meta name="twitter:image" content="{% static 'images/hrivne.jpg' %}"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Вывод валюты с украинских счетов"/>
+  <meta name="twitter:description" content="Банки Молдовы - ближе к украинскому народу"/>
+
+{% endblock %}
 {% block title %}
 Вывод валюты с украинских счетов
 {% endblock %}
@@ -8,7 +26,7 @@
     <div class="row">
         <div class="col-md-6 col-sm-12">
             <div class="card border-primary" style="width: 100%;min-height: 1250px;">
-                <img src="https://scontent.fkiv5-1.fna.fbcdn.net/v/t39.30808-6/271790687_100709102515717_3604889141106871823_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=gdw_L9cB23EAX_25Zqi&_nc_ht=scontent.fkiv5-1.fna&oh=00_AT-KolKRD7wZLlBF4ZP5idGgbibWVn1GEo7igjjD0s03BQ&oe=6223E7C6" class="card-img-top" alt="ProCredit Bank Moldova" style="max-height: 450px;width: auto;height: 450px; padding: .75rem;"  >
+                <img src="{% static 'images/pcb.jpg' %}" class="card-img-top" alt="ProCredit Bank Moldova" style="padding: .75rem;"  >
                 <div class="card-body">
                   <h5 class="card-title">ProCredit Bank Moldova</h5>
                   <p class="card-text">Шановні громадяни України,
