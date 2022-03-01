@@ -5,6 +5,7 @@ from .models import Help, NeedHelp
 @admin.register(Help)
 class HelpAdmin(admin.ModelAdmin):
     list_display = (
+        'pk',
         'title',
         'category',
         'address',
@@ -18,6 +19,7 @@ class HelpAdmin(admin.ModelAdmin):
         'category',
     )
     search_fields = (
+        'pk',
         'title',
         'address',
         'name',
@@ -35,7 +37,7 @@ class NeedHelpAdmin(admin.ModelAdmin):
         'category',
         'name',
         'tel',
-        'pub_date',
+        # 'pub_date',
         'mod_date'
         )
     list_filter = (
