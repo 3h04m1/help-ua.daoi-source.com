@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
-
+{% block title %}
+Cнятие валюты с украинских счетов
+{% endblock %}
 {% block main %}
 <br>
 <div class="container">
@@ -92,9 +94,10 @@
 
 {% for item in help %}
 <div class="col-md-4 col-sm-12 d-flex justify-content-center">
-    <div class="card d-flex justify-content-center" style="width: 18rem; margin:.75rem 0rem;min-height:200px ;">
-        <div class="card-body d-flex justify-content-center flex-column">
+    <div class="card d-flex justify-content-center align-items-between" style="width: 18rem; margin:.75rem 0rem;min-height:200px ;">
+        <div class="card-body d-flex justify-content-center align-items-between flex-column">
           <h5 class="card-title">{{ item|upper }}</h5>
+          <h6><span class="badge bg-primary">{{ item.get_category_display }}</span><span class="badge bg-success">{{ item.get_address_display }}</span></h6>
           <p class="card-text">{{ item.details }}</p>
           {% if item.mod_date%}
           <p class="card-text">{{ item.mod_date }}</p>
@@ -103,7 +106,12 @@
           {% else %}
           <p class="card-text">Feb. 25, 2022</p>
           {% endif %}
-          <a href="tel:{{ item.tel }}" class="btn btn-primary">{{ item.tel }}</a>
+          <div class="position-relative bottom-0 d-flex align-items-end justify-content-center flex-column">
+            {% if item.link %}
+            <a href="{{ item.link }}" class="btn btn-secondary col-sm-12">Link</a>
+            {% endif %}
+            <a href="tel:{{ item.tel }}" class="btn btn-primary col-sm-12">{{ item.tel }}</a>
+          </div>
         </div>
       </div>
 </div>

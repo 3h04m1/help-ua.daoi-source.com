@@ -83,22 +83,8 @@ def mapview(request):
 
     return render(request, "working.html", context=context)
 
-def betamap(request):
-    help = Help.objects.all()
-    coordonates = {}
-    for item in help:
-        if item.address:
-            # print(item.address)
-            location = geolocator.geocode(item.address)
-            if location:
-                coordonates[item.pk] = [location.latitude, location.longitude]
-    context = {
-        "help": help,
-        "coords": coordonates,
-    }
-    # print(help)
-
-    return render(request, "map.html", context=context)
+def banks(request):
+    return render(request, "main/bank_list.html")
 
 def help_list(request):
     help_list = Help.objects.order_by("-pk")
