@@ -1,0 +1,9 @@
+/venv
+.config/gunicorn/dev.py
+raions.py
+settings.py
+default
+*.pyc
+app/db.sqlite3
+.pyc
+*.pyc
