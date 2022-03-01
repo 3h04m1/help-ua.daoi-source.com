@@ -17,6 +17,7 @@
       <li class="nav-item"><a href="{% url 'index' %}" class="nav-link" aria-current="page">Главная</a></li>
       <li class="nav-item"><a href="{% url 'help' %}" class="nav-link">Предлагайте помощь</a></li>
       <li class="nav-item"><a href="{% url 'need_help' %}" class="nav-link">Обратитесь за помощью</a></li>
+      <li class="nav-item"><a href="{% url 'banks' %}" class="nav-link active">Вывод валюты с украинских счетов</a></li>
       <li class="nav-item"><a href="{% url 'map' %}" class="nav-link active">Карта</a></li>
     </ul>
     <div class="topnav">
@@ -33,6 +34,9 @@
         </div>
         <div class="window">
           <a class="m-nav" href="{% url 'need_help' %}"> Обратитесь за помощью</a>
+        </div>
+        <div class="window">
+          <a href="{% url 'banks' %}" class="m-nav">Вывод валюты с украинских счетов</a>
         </div>
         <div class="window">
           <a class="m-nav" href="{% url 'map' %}"> Карта</a>
