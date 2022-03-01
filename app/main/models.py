@@ -2,6 +2,7 @@
 from django.db import models
 
 class Help(models.Model):
+
     title = models.CharField(max_length=20, db_column="title")
     name = models.CharField(max_length=255)
     tel = models.CharField(max_length=15)
@@ -60,6 +61,12 @@ class Help(models.Model):
         medical = 'medical', 'Servicii medicale | Медицинские услуги'
     
     category = models.CharField(max_length=20, choices=Category.choices, null=True, default="None")
+    
+    class Author(models.TextChoices):
+        fizica = "fizica", "Persoana Fizica | Физическое лицо"
+        juridica = "juridica", "Persoana Juridica | Юридическое лицо"
+    
+    author = models.CharField(max_length=10, choices=Author.choices, null=True, default="None")
     
     def __str__(self):
         return f"{self.title}"
