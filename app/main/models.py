@@ -57,6 +57,7 @@ class Help(models.Model):
         voluntariat = 'voluntariat', 'Волонтерство, переклад'
         donatii = 'donatii', 'Haine, alimente | Одяг, їжа'
         lucru = 'lucru', 'Lucru | Работа '
+        medical = 'medical', 'Servicii medicale | Медицинские услуги'
     
     category = models.CharField(max_length=20, choices=Category.choices, null=True, default="None")
     
