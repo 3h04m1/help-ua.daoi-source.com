@@ -165,4 +165,7 @@ def need_help_list(request):
 
     }
     return render(request, "main/help_list.html", context=context)
+
+def google(request):
+    return render(request,"google266444e0b9cd4821.html")
 # Create your views here.
