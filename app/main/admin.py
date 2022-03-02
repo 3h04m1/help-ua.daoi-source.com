@@ -5,8 +5,8 @@ from .models import Help, NeedHelp
 @admin.register(Help)
 class HelpAdmin(admin.ModelAdmin):
     list_display = (
-        'pk',
         'title',
+        'author',
         'category',
         'address',
         'name',
@@ -15,6 +15,7 @@ class HelpAdmin(admin.ModelAdmin):
         'mod_date'
         )
     list_filter = (
+        'author',
         'address',
         'category',
     )
