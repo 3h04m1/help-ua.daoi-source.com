@@ -24,7 +24,8 @@ def help(request):
             details=request.POST.get("details"),
             link=request.POST.get("link"),
             address=request.POST.get("address"),
-            category=request.POST.get('category')
+            category=request.POST.get('category'),
+            author=request.POST.get('author')
 
         )
         return redirect('index')
@@ -93,12 +94,16 @@ def help_list(request):
     help_type = request.GET.get("category")
     
     address = request.GET.get("address")
+
+    author = request.GET.get("author")
     
     
     if address:
         help_list = help_list.filter(address=address)
     if help_type:
         help_list = help_list.filter(category=help_type)
+    if author:
+        help_list = help_list.filter(author=author)
 
 
     if help_list:
