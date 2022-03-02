@@ -13,10 +13,11 @@ Cнятие валюты с украинских счетов
     <h1 class="text-center">Список людей, готовых помочь</h1>
     <div class="form-group">
       <label for="category">Category</label>
-      <select name="category" id="category" class="form-control" required>
+      <select name="category" id="category" class="form-control">
         {% if help_type %}
         <option value="{{ help_type }}">{{help_type|upper}}</option>
         {% endif %}
+        <option value="">All</option>
         <option value="cazare">Cazare | Проживання</option>
         <option value="transport">Transport | Транспорт</option>
         <option value="consiliere">Consiliere | Консультування</option>
@@ -28,10 +29,11 @@ Cнятие валюты с украинских счетов
     </div>
     <div class="form-group">
       <label for="author">Author</label>
-      <select name="author" id="author" class="form-control" required>
+        <select name="author" id="author" class="form-control" >
+        <option value="">All</option>
         <option value="fizica">Persoana Fizica | Физическое лицо</option>
         <option value="juridica">Persoana Juridica | Юридическое лицо</option>
-      </select>
+      </select> 
     </div>
     <div class="form-group">
         <label for="address">Please select the region</label>
@@ -137,11 +139,11 @@ Cнятие валюты с украинских счетов
                     <div class="col-sm-12 d-flex justify-content-center" style="margin:3rem 0rem;">
                           <ul class="pagination" style="padding: 0px 5rem">
                                 {% if help.has_previous %}
-                                <li class="page-item"><a class="page-link" href="?page={{ help.previous_page_number }}">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="?category={{ help_type }}&author={{ author }}&address={{ address }}&page={{ help.previous_page_number }}">Previous</a></li>
                                 {% endif %}
                                 <h3 style="margin:0px 10px;width:max-content;">{{ page_number }} of {{ help.paginator.num_pages }}</h3>
                             {% if help.has_next %}
-                            <li class="page-item"><a class="page-link" href="?page={{ help.next_page_number }}">Next</a></li>
+                            <li class="page-item"><a class="page-link" href="?category={{ help_type }}&author={{ author }}&address={{ address }}&page={{ help.next_page_number }}">Next</a></li>
                             {% endif %}
                           </ul>
                     </div>
