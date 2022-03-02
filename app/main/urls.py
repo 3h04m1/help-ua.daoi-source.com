@@ -1,5 +1,5 @@
-from django.urls import path, include
-from .views import index, mapview,banks, need_help, help, help_list, need_help_list
+from django.urls import path
+from .views import index, mapview,banks, need_help, help, help_list, need_help_list, thanks
 
 urlpatterns = [
     path("", index, name="index" ),
@@ -9,4 +9,5 @@ urlpatterns = [
     path("help_list/", help_list, name="help_list" ),
     path("need_help_list/", need_help_list, name="need_help_list" ),
     path("banks/", banks, name="banks"),
+    path("thanks/", thanks, name="thanks"),
 ]

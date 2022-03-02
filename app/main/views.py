@@ -165,4 +165,11 @@ def need_help_list(request):
 
     }
     return render(request, "main/help_list.html", context=context)
-# Create your views here.
+
+
+def thanks(request):
+    
+    context = {
+
+    }
+    return render(request, "main/thanks.html", context=context)
