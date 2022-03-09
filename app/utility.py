@@ -27,7 +27,7 @@ def adress_to_points(address:str):
     # print(response_json['results'][0]['geometry']['location'])
     print(address_link_str)
     
-def gpy(address:str):
+# def gpy(address:str):
     
 
 
