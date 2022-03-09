@@ -7,3 +7,4 @@ default
 app/db.sqlite3
 .pyc
 *.pyc
+text nexta.txt
