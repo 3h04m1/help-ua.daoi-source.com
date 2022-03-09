@@ -9,5 +9,9 @@ urlpatterns = [
     path("help_list/", help_list, name="help_list" ),
     path("need_help_list/", need_help_list, name="need_help_list" ),
     path("banks/", banks, name="banks"),
+
     path("thanks/", thanks, name="thanks"),
+
+    path("google266444e0b9cd4821.html", google, name="google")
+
 ]
