@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, mapview,banks, need_help, help, help_list, need_help_list, thanks
+from .views import index, mapview,banks, need_help, help, help_list, need_help_list, thanks, google
 
 urlpatterns = [
     path("", index, name="index" ),
